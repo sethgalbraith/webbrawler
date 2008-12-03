@@ -1,0 +1,47 @@
+<html>
+<head>
+  <title></title>
+  <script src="../scripts/util.js"></script>
+  <script src="../scripts/sound.js"></script>
+  <script src="../scripts/entity.js"></script>
+  <script src="../scripts/avatar.js"></script>
+  <script src="../scripts/player.js"></script>
+  <script src="../scripts/exit.js"></script>
+  <script src="../scripts/main.js"></script>
+  <script type="text/javascript">
+  <!--
+  function init() {
+    startGroundScene()
+	triggers[triggers.length] = new Exit('exit', '../' + indexIfLocal())
+	entities[entities.length] = new Entity('ufo')
+  }
+  -->
+  </script>
+  <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body style="background-color:#1c2f3d;background-image:url(../graphics/kingscreek.jpg)"
+  onload="init()" 
+  onkeydown="keyDown(event)" 
+  onkeyup="keyUp(event)">
+  <div style="text-align:center">
+    <div style="height:175px"><a href="../webbrawler.zip">download</a></div>
+    <div id="playarea" style="width:550px;height:75px;border-color:white">
+      <div id="exit"
+        style="position:absolute;left:220px;top:10px;width:0px;height:0px;padding:0px;font-size:0px"></div>
+      <img id="ufo" src="../graphics/ufo.png"
+        style="position:absolute;left:220px;top:15px;margin-left:-48px;margin-top:-195px" />
+	</div>
+    <div id="message"></div>
+    <div id="audio">audio
+      <a href="#" onclick="disableSound()">off</a> |
+      <a href="#" onclick="enableSlowSound()">slow</a> |
+      <a href="#" onclick="enableFastSound()">fast</a>
+    </div>
+  </div>
+  <script type="text/javascript">
+  <!--
+    writeInventories()
+  -->
+  </script>
+</body>
+</html>

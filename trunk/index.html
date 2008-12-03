@@ -1,0 +1,78 @@
+<html>
+<head>
+  <title></title>
+  <script src="scripts/util.js"></script>
+  <script src="scripts/planet.js"></script>
+  <script src="scripts/main.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body bgcolor="#000000" onload="startSolarSystem()"
+  style="background-image:url('graphics/pleiades.jpg')">
+  <div style="text-align:center">
+    <div id="playarea" style="border:none;width:700px;height:500px"></div>
+  </div>
+  <div class="spaceMenu" style="position:absolute;top:0px;left:0px;z-index:5">
+    <a href="webbrawler.zip">download</a>
+    <br />
+  	<a href="#" onclick="toggleVisible('licenses')">licenses</a>
+    <ul id="licenses" style="visibility:hidden;font-size:small">
+      <li>
+        Copyright (C) 2008  Seth Galbraith<br />
+        This program comes with ABSOLUTELY NO WARRANTY<br />
+        This is free software, and you are welcome to redistribute it<br />
+	    under <a href="gpl-3.0-standalone.html">certain conditions.</a>
+      </li>
+      <li>
+        kingscreek.jpg from Daniel Schwen's<br />
+        <a href="http://commons.wikimedia.org/wiki/Image:USA_Lassen_NP_Kings_Creek_CA_edit3.jpg"
+        >USA_Lassen_NP_Kings_Creek_CA_edit3.jpg</a><br />
+        <a href="http://creativecommons.org/licenses/by-sa/2.5/"
+        >creative commons attribution-sharealike license</a>
+      </li>
+      <li>
+        pleiades.jpg courtesy of
+        <a href="http://hubblesite.org/newscenter/archive/releases/2004/20/image/a/"
+        >NASA, ESA and AURA/Caltech</a>
+      </li>
+      <li>
+        victoria.jpg courtesy of
+        <a href="http://marsrovers.nasa.gov/gallery/panoramas/opportunity/"
+        >NASA/JPL-Caltech/Cornell University</a>
+      </li>
+      <li>
+        mars.png courtesy of<br />
+        <a href="http://heritage.stsci.edu/2001/24/index.html"
+        >NASA, ESA, and The Hubble Heritage Team (STScI/AURA)</a>
+      </li>
+      <li>
+        earth.png courtesy of
+        <a href="http://eol.jsc.nasa.gov/scripts/sseop/photo.pl?mission=AS17&roll=148&frame=22727">NASA</a>
+      </li>
+      <li>
+        sun.png courtesy of
+        <a href="http://solarscience.msfc.nasa.gov/surface.shtml">NASA</a>
+      </li>
+      <li>
+        all other graphics by Seth Galbraith and B. F. Galbraith<br />
+        <a href="http://creativecommons.org/licenses/by-sa/2.5/"
+        >creative commons attribution-sharealike license</a>
+      </li>
+      <li>
+        hit.wav is Fransico Padilla's<br />
+        <a href="http://www.freesound.org/samplesViewSingle.php?id=22742"
+        >22742_FranciscoPadilla_39_Hand_Clap.wav</a><br />
+        <a href="http://creativecommons.org/licenses/sampling+/1.0/"
+        >creative commons sampling plus license</a>
+      </li>
+      <li>
+        miss.wav from Fransisco Padilla's<br /> 
+        <a href="http://www.freesound.org/samplesViewSingle.php?id=22785"
+        >22785_FranciscoPadilla_Blow.wav</a><br />
+        <a href="http://creativecommons.org/licenses/sampling+/1.0/"
+        >creative commons sampling plus license</a>
+      </li>
+    </ul>
+    <div id="message"></div>
+  </div>
+</body>
+</html>
