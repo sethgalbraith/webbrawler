@@ -46,7 +46,7 @@ ul {
   font-size:large;
   font-weight:900;
 }
-#score1, #score2 {
+#score1, #score2, #hp1, #hp2 {
   font-weight:900;
   color:white;
 }

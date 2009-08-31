@@ -79,6 +79,7 @@ function writeInventories() {
     document.write('      </ul>\n')
     document.write('    </div>\n')
     document.write('    <div id="score' + (i + 1) + '" style="width:100px"></div>\n')
+    document.write('    <div id="hp'    + (i + 1) + '" style="width:100px"></div>\n')
     document.write('  </div>\n')
   }
 }
