@@ -3,7 +3,7 @@
 
 var AVATAR_RUN_DELAY = 5
 var AVATAR_ATTACK_DURATION = 5
-var AVATAR_FALL_DURATION = 50
+var AVATAR_FALL_DURATION = 30
 var AVATAR_SWORD_IMAGE_WIDTH = 36
 var AVATAR_SWORD_IMAGE_HEIGHT = 20
 var AVATAR_UNARMED_IMAGE_WIDTH = 32
@@ -50,6 +50,14 @@ function Avatar(suffix) {
   document.getElementById("playarea").appendChild(this.element)
   this.hitSound  = new Sound("../sounds/hit.wav")
   this.missSound = new Sound("../sounds/miss.wav")
+  this.maxHP = 20
+  this.hitpoints = this.maxHP
+  /* Because action happens at about 10x the speed of the Scratch RPS, 
+     characters have 10x as many HP in Hack and Slash 2D.  
+     30 HP in hands2d is equivalent to 3 HP in Scratch.  
+     Also, when a character is injured in hands2d, 
+     instead of attacks getting half as frequent like in Scratch, 
+     they just get half as powerful. */
 }
 Avatar.prototype.move = function (l, t, r, b, triggers) {
   if (this.fallTime <= 0) {
@@ -126,15 +134,34 @@ Avatar.prototype.attack = function () {
     if (entities[i].x + entities[i].rMargin < left)   continue
     if (entities[i].y - entities[i].tMargin > bottom) continue
     if (entities[i].y + entities[i].bMargin < top)    continue
-    entities[i].fall()
-    document.getElementById("score" + this.suffix).innerHTML += "* "
-    hit = true
+    d20roll = d20() // Roll a d20
+    // If the roll hits, deliver damage, 2 for healthy attacker, 1 for injured attacker)
+    if (d20roll > 12) {
+      entities[i].fall()
+      hit = true
+      if (this.hitpoints > (this.maxHP / 2))
+        entities[i].hitpoints = entities[i].hitpoints - 2
+      else
+        entities[i].hitpoints = entities[i].hitpoints - 1
+    }
+    document.getElementById("score" + this.suffix).innerHTML = "last attack roll: " + d20roll
   }
   if (hit) this.hitSound.play()
   else this.missSound.play()
 }
 Avatar.prototype.fall = function() {
-  this.fallTime = AVATAR_FALL_DURATION
+  if (this.hitpoints > 0)
+    this.fallTime = AVATAR_FALL_DURATION
+  else
+    this.fallTime = 500
+  // Update hit points to screen and display state of health
+  document.getElementById("hp" + this.suffix).innerHTML = "Hit Points: " + this.hitpoints 
+  if (this.hitpoints > (this.maxHP / 2))
+    document.getElementById("hp" + this.suffix).innerHTML += " (healthy)"
+  else if (this.hitpoints > 0)
+    document.getElementById("hp" + this.suffix).innerHTML += " (injured)"
+  else
+    document.getElementById("hp" + this.suffix).innerHTML += " (incapacitated)"
 }
 Avatar.prototype.equip = function (folder) {
   if (folder == "sword") {
